@@ -71,7 +71,6 @@ source=(#https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.x
         0027-asus-ally-hid-test-btn-turbo.patch
         0028-asus-ally-hid-test-gamepad-mode.patch
         0029-ally-tmp-remapping.patch
-        0030-asus-wmi-fixup-screenpad-brightness.patch
         # Zotac Zone patches
         0001-zotac-zone-hid-initial-impl.patch
         0002-xpad-gate-the-zotac-zone-PID-behind-if-IS_REACHABLE-.patch
@@ -128,7 +127,6 @@ sha256sums=('1b5b7016b934a3dd458073a4f7bc8b0a4909203cf207db1fbc89cb52266307ee'
             'ca69d6815b1d23a2e31e5453dadccb22c03ae9e36d5cd29dd8d8389b1437dff4'
             '9bafa4955c27d3668d3827e3fbd9aad00195f581d3b5c9f37a4059420e504a1d'
             '8e6f050f3e176e7076d0f11375be55b07689d599c37ddb406c7494ea54232247'
-            'e332e8137eec1f74e8cdfe27baad2a738620ef3498bca19be9c934044de0fa78'
             'b67f25c13e946b51712b0e828ebbf8bea980d339bd6effab17869f6a62e428df'
             'f53e0ad0892ab4bd85f55b4cbb829481eba28865cf835a46c80bc237e0771981'
             '138684588665b8f651dffb4e75c265a2b81f6bd7a606f75f8fc6814a4a63d3fd'
