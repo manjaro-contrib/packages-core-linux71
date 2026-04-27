@@ -7,10 +7,10 @@
 _basekernel=7.1
 _basever=${_basekernel//.}
 _kernelname=-MANJARO
-_commit=faeab166167f5787719eb8683661fd41a3bb1514
-_rc=rc0
+_commit=
+_rc=rc1
 pkgbase=linux${_basever}
-pkgver=7.1.0rc0
+pkgver=7.1.0rc1
 pkgrel=1
 arch=('x86_64')
 url="https://www.kernel.org/"
@@ -34,7 +34,7 @@ options=(
   !strip
 )
 source=(#https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
-        #https://git.kernel.org/torvalds/t/linux-${_basekernel}-${_rc}.tar.gz
+        https://git.kernel.org/torvalds/t/linux-${_basekernel}-${_rc}.tar.gz
         #https://github.com/torvalds/linux/archive/refs/tags/v${_basekernel}.tar.gz
         linux-${_basekernel}-${_rc}.tar.gz::https://github.com/torvalds/linux/archive/${_commit}.tar.gz
         #https://www.kernel.org/pub/linux/kernel/v7.x/patch-${pkgver}.xz
@@ -101,7 +101,8 @@ else
   _srcdir="linux-${_basekernel}"
 fi
 
-sha256sums=('07d0adad9aaf6233a062d3f7dacaaccbe81abc2b129de0c11dd3eea63c7cadf9'
+sha256sums=('1b5b7016b934a3dd458073a4f7bc8b0a4909203cf207db1fbc89cb52266307ee'
+            '1b5b7016b934a3dd458073a4f7bc8b0a4909203cf207db1fbc89cb52266307ee'
             '573388259dec797a1dfd1050bcd1d0bd243b776a4c782730f0b9d39d1a2ce3a9'
             'e5e98d62b63704cecdf32dbe6a9bafea6e70b23fa8e01fe96ca220ac6036392e'
             'c21170eba77438abb8b8ab02aeccf16bfb2467a01303509945aa6b3a0fd16d31'
@@ -149,11 +150,11 @@ export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EP
 prepare() {
   cd $_srcdir
 
-  msg "set PATCHLEVEL to 1"
-  sed -ri "s|^(PATCHLEVEL =).*|\1 1|" Makefile
+  #msg "set PATCHLEVEL to 1"
+  #sed -ri "s|^(PATCHLEVEL =).*|\1 1|" Makefile
   
-  msg "set EXTRAVERSION to ${_rc}"
-  sed -ri "s|^(EXTRAVERSION =).*|\1 -${_rc}|" Makefile
+  #msg "set EXTRAVERSION to ${_rc}"
+  #sed -ri "s|^(EXTRAVERSION =).*|\1 -${_rc}|" Makefile
 
   echo "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
