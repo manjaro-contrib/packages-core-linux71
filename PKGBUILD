@@ -53,24 +53,25 @@ source=(#https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.x
         # Manjaro Patches
         # Realtek patch
         0999-patch_realtek.patch
-        # ROG ALLY Patches (wip/ally-6.14-refactor)
-        0002-hid-add-VID-PID-for-ASUS-ROG-RAIKIRI-PRO.patch
-        0014-asus-ally-hid-add-new-driver-for-ASUS-Ally-handhelds.patch
-        0015-asus-ally-hid-Add-joystick-LED-ring-support.patch
-        0016-asus-ally-hid-initial-Ally-X-gamepad-bringup.patch
-        0017-asus-ally-hid-add-QAM-steam-action-attribute-to-disa.patch
-        0018-asus-ally-hid-add-force-feedback-to-Ally-X-gamepad.patch
-        0019-asus-ally-hid-handle-screenside-QAM-buttons.patch
-        0020-asus-ally-hid-rename-input-devices.patch
-        0021-asus-ally-hid-add-gamepad-config-structures.patch
-        0022-asus-ally-hid-test-vibe.patch
-        0023-asus-ally-hid-add-deadzone-and-outer-threshold-to-JS.patch
-        0024-asus-ally-hid-test-trigger-dzot.patch
-        0025-asus-ally-hid-test-js-anti-deadzone.patch
-        0026-asus-ally-hid-test-joystick-response-curves.patch
-        0027-asus-ally-hid-test-btn-turbo.patch
-        0028-asus-ally-hid-test-gamepad-mode.patch
-        0029-ally-tmp-remapping.patch
+        # ROG ALLY Patches
+        # https://github.com/OpenGamingCollective/linux/pull/11
+        0001-FOR-UPSTREAM-hid-asus-ally-Add-joystick-LED-ring-sup.patch
+        0002-FOR-UPSTREAM-hid-asus-ally-do-MCY-FW-validation-in-h.patch
+        0003-FOR-UPSTREAM-hid-asus-ally-initial-Ally-X-gamepad-br.patch
+        0004-FOR-UPSTREAM-hid-asus-ally-initial-gamepad-configura.patch
+        0005-FOR-UPSTREAM-hid-asus-ally-add-button-remap-attribut.patch
+        0006-FOR-UPSTREAM-hid-asus-ally-add-gamepad-mode-selectio.patch
+        0007-FOR-UPSTREAM-hid-asus-ally-Turbo-settings-for-button.patch
+        0008-FOR-UPSTREAM-hid-asus-ally-add-vibration-intensity-s.patch
+        0009-FOR-UPSTREAM-hid-asus-ally-add-JS-deadzones.patch
+        0010-FOR-UPSTREAM-hid-asus-ally-add-trigger-deadzones.patch
+        0011-FOR-UPSTREAM-hid-asus-ally-add-anti-deadzones.patch
+        0012-FOR-UPSTREAM-hid-asus-ally-add-JS-response-curves.patch
+        0013-FOR-UPSTREAM-hid-asus-ally-mcu_version-attribute.patch
+        0014-FOR-UPSTREAM-hid-asus-ally-add-calibrations-wip.patch
+        0015-FOR-UPSTREAM-debug-by-default.patch
+        0016-FOR-UPSTREAM-hid-asus-ally-grab-short-press-QAM-on-R.patch
+        0017-FOR-UPSTREAM-hid-asus-ally-disable-wakeup-attribute-.patch
         # Zotac Zone patches
         0001-zotac-zone-hid-initial-impl.patch
         0002-xpad-gate-the-zotac-zone-PID-behind-if-IS_REACHABLE-.patch
@@ -79,8 +80,8 @@ source=(#https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.x
         # Steamdeck (OLED)
         0001-steam-deck.patch
         # AMD patches
-        # [PATCH v10] Add AMD ISP4 driver
-        # https://patchew.org/linux/20260320084146.200988-1-Bin.Du@amd.com/
+        # [PATCH v11] Add AMD ISP4 driver
+        # https://patchew.org/linux/20260506093250.93460-1-Bin.Du@amd.com/
         0001-media-platform-amd-Introduce-amd-isp4-capture-driver.patch
         0002-media-platform-amd-low-level-support-for-isp4-firmware.patch
         0003-media-platform-amd-Add-isp4-fw-and-hw-interface.patch
@@ -110,35 +111,35 @@ sha256sums=('2f7ad6f33d4582641923c476dd0d87884af4e6bc36c3513e5ad243e12facbb82'
             'ae19a89ac1a3852d08456e7d163baa30d8fc8bcb0e48d08aee1bc1549fb143ba'
             '512032c6b93fce24254da6cace7bf101c8f7c824761a0f99deed4b7724ac6f3e'
             '103688f3fceff664c919d94faab7a6948880710641110eaa71fe107ee06c37e9'
-            'e5671d5f6fe27c072397efeedb876912d52e104488baa8cd149727ff0814e657'
-            '1be445ba5698e135c32433c2bca3334c580d8d72dc3111d423dcc8d2da228e41'
-            '5d73542ba4aa68d0b00b044a4a3eb2ca8fbfbb16790edbb22417cffeec4caade'
-            'f91b213a05b679f14f2c61b14fbd2dda69950e17ded5d3b1e08eab09b8656f19'
-            '1e55d30afbd5e1948685bdf08768b1f3961ec5713b8dfe869fdd494b039e5a08'
-            '7da67f4e4628a1bd8adba3040e91c42b1c2ac620ffc76d2609dab0a026878976'
-            '3f58f4bf292bca23fafa946fe6d86f2c5fbce84a609dc177f2081d69dab8fd1d'
-            '6bb40862279ea8647ba62117b6a615853965e24789145690fa30abdb1e705f05'
-            '36fb699a17ad59871366348a7cc031bf4fc42ebb7f9b15d22a5ede763f9518de'
-            'b83b272409c3fac18e0e7d21dc0230652130ae1abc7386893ae2c4cbf7ace01a'
-            'cf2c859f55a045d054c5381675327a1570e98228c4871c06e53d246f1ca5285c'
-            'f0bea9dae7b29fb4980c0fa506be7219d022716cb51df70dcd0230156a808ecb'
-            '763020ec985dea291e6009dfed274eae735c8c69872d816c2c83c065a1251329'
-            '36eae257663af1df644f1a7819c03bc33c290a7bbcb319fb1e05668f198b5a81'
-            'ca69d6815b1d23a2e31e5453dadccb22c03ae9e36d5cd29dd8d8389b1437dff4'
-            '9bafa4955c27d3668d3827e3fbd9aad00195f581d3b5c9f37a4059420e504a1d'
-            '8e6f050f3e176e7076d0f11375be55b07689d599c37ddb406c7494ea54232247'
+            'fdb4994534e896bcfa83a4f5764c8e2039f77c708f04cd1e4fc0ec1fc824c15e'
+            'a1e9a20dc86c2ea5ed5736336656f74e789f2c6c12704896c9f7e32729988500'
+            '82252a10edeb5848fb3ad6f79211b669894ebe07ebdb7c8f2ad72f1b0bd91364'
+            '2844e5b8e34da0b48020d3bb0e57724848f5f01683a29ec63019d1b164ecf509'
+            '4dca4da1dc5b21da4ebafe6c5072c0596eb530ab9e5603ddf0ccad2208146cac'
+            '755083d2f4093b2faa7a8ac0fee53fbc6b527a076af1698e97bf94b717891abd'
+            '68d500aab543edff8c5e3298d3be6fa0b78f700fb490ca52d14cb84051ffda15'
+            '0b4eeafdeddfd00938584f6e8e31f0316aa0245ada5db7d1492c455175ad7076'
+            '0e078d413f5c10fb39fb45608e49b3c58b3154df9c3cc79f0a5a21296a92f535'
+            '651dc8efc28cd03b145342db5a6446a80a7aa4bd7064e3ab1832292181951614'
+            'f7cabd28d1c7e4492c9c685d41676a16d0887221c76b3257dc4653e8cbbd0239'
+            '4dd33735647768755c07ca55f7c9aa0ead9a20ae2d929b2ade840a992d5fe08e'
+            '8bdcf5f00387d93086dde4748f5155a21b90b87e0fd562a127c365df6395b3eb'
+            '1dc1f5cc60e7f1298b4f3deea12dd9e6c47454fecee55b5f46888f22aec09b03'
+            '7cd498aab2ec929315848366ca07b379315db7c081bf463f6590146534fb651c'
+            '54841d11451eaea6eab712184a84fe3f119c1b5365fbca0c927129ebde3c16e8'
+            '73ed3550e05774836772418418a5089d43709b1796c42141e75dbe78584369d8'
             'b67f25c13e946b51712b0e828ebbf8bea980d339bd6effab17869f6a62e428df'
             'f53e0ad0892ab4bd85f55b4cbb829481eba28865cf835a46c80bc237e0771981'
             '138684588665b8f651dffb4e75c265a2b81f6bd7a606f75f8fc6814a4a63d3fd'
             '3d37e1f54290bad1b7a4c5c45046341dc4c1bfc2f8648b7754bf0bd9705b3a35'
             'f8cf8ad3e17857b51c3f7dd954eb5ac7ba44bfe0302a40e70b2c496573407edf'
-            'bc8a907cf1104e8095e37a7930f2626bf84ce50b8abae88f477a4af49473353e'
-            'f7fb0259e4e6ef98c202e9e86b041a2e726bec933806e4d5e25c1a93017011ac'
-            '82ec8a7a07074bff100b0e16a99527f86ddaa3359acfe62ab680ee4979897989'
-            '7c12ba33d4b3eb0ae37967164c749c3486ed9af0e576a4df50584e7ed7fd7ae6'
-            'c1a79be91d9f0a965373c8e4434eb2284d1a668e8bc8993d549f3d04e85e12af'
-            '57e286988c936b2d59108e0fd96f80a8eea4969e192c919cb6df72b3258ecf9b'
-            'b0a8d569c75782f8db903b37aba68e4587bc87e33fd5b3a798ab87fbba2e13c0'
+            '934384a274e6b90c58f91ab1a7096e37bd85bc8c2fa5bc0aa37ed25def9840fe'
+            '024f8903b4da69cee9c273aa15e4c1dea7e4c57f37c4c6e0936daf0a232676af'
+            '83271e77f23648dbf1d282ee0630d4434820e509f3699dfc64f4c95913481a87'
+            '9e095bb67f7583a6f61347272fcc64e85635868c8b08cc4f51882c5a9d9cd171'
+            '13b898988272e7ccd2f51f67a0ccbc7be0759240bb04692473c418b0e61c8a88'
+            '16a9d82e059303387aff4ea7cc5211bc50a71e39a99535f3d4f3af9bbec50426'
+            'dc6412fd3b2defb700b71b4a287ec299d083d760ebdcb7d37b9928c273dd82be'
             '9628a67ac23beaf2de7194d2934386944adc64cb2a4a90e4c38b867b868654b4')
 
 export KBUILD_BUILD_HOST=manjaro
