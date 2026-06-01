@@ -8,9 +8,9 @@ _basekernel=7.1
 _basever=${_basekernel//.}
 _kernelname=-MANJARO
 _commit=
-_rc=rc5
+_rc=rc6
 pkgbase=linux${_basever}
-pkgver=7.1.0rc5
+pkgver=7.1.0rc6
 pkgrel=1
 arch=('x86_64')
 url="https://www.kernel.org/"
@@ -101,8 +101,8 @@ else
   _srcdir="linux-${_basekernel}"
 fi
 
-sha256sums=('c7654654334009442a9d5bd47ffe0cf8c7a856b7feeb6359eaf5588830f25df6'
-            'c7654654334009442a9d5bd47ffe0cf8c7a856b7feeb6359eaf5588830f25df6'
+sha256sums=('93f588579917f3666fa6dd5a5bb810891cbf14722afc6a0c69108e137e01241f'
+            '93f588579917f3666fa6dd5a5bb810891cbf14722afc6a0c69108e137e01241f'
             'c83bbf89136ba2d5cdb9687a629855a1f7dec0105e6e5f59abbdb04869759d93'
             'e5e98d62b63704cecdf32dbe6a9bafea6e70b23fa8e01fe96ca220ac6036392e'
             'c21170eba77438abb8b8ab02aeccf16bfb2467a01303509945aa6b3a0fd16d31'
