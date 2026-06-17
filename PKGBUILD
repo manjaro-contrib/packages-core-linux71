@@ -8,9 +8,9 @@ _basekernel=7.1
 _basever=${_basekernel//.}
 _kernelname=-MANJARO
 _commit=
-_rc=rc7
+_rc=
 pkgbase=linux${_basever}
-pkgver=7.1.0rc7
+pkgver=7.1
 pkgrel=1
 arch=('x86_64')
 url="https://www.kernel.org/"
@@ -33,10 +33,8 @@ options=(
   !debug
   !strip
 )
-source=(#https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
-        https://git.kernel.org/torvalds/t/linux-${_basekernel}-${_rc}.tar.gz
-        #https://github.com/torvalds/linux/archive/refs/tags/v${_basekernel}.tar.gz
-        linux-${_basekernel}-${_rc}.tar.gz::https://github.com/torvalds/linux/archive/${_commit}.tar.gz
+source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
+        https://github.com/torvalds/linux/archive/refs/tags/v${_basekernel}.tar.gz
         #https://www.kernel.org/pub/linux/kernel/v7.x/patch-${pkgver}.xz
         config
         # ARCH Patches
@@ -101,8 +99,8 @@ else
   _srcdir="linux-${_basekernel}"
 fi
 
-sha256sums=('f9ef2aba50622b36cd4decdd677c9c8cfe37c9caedabaf38db750959906ea17b'
-            'f9ef2aba50622b36cd4decdd677c9c8cfe37c9caedabaf38db750959906ea17b'
+sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0'
+            'ad7f8010a17ecd9959c79cba639dfbbc9dccbbfb7323c5f1d04421368939f18f'
             'd21fee07389507d59f6e04e3e1f7ef396e056fee2f794ac1192232706ac22d0b'
             'e5e98d62b63704cecdf32dbe6a9bafea6e70b23fa8e01fe96ca220ac6036392e'
             'c21170eba77438abb8b8ab02aeccf16bfb2467a01303509945aa6b3a0fd16d31'
@@ -151,7 +149,7 @@ prepare() {
 
   #msg "set PATCHLEVEL to 1"
   #sed -ri "s|^(PATCHLEVEL =).*|\1 1|" Makefile
-  
+
   #msg "set EXTRAVERSION to ${_rc}"
   #sed -ri "s|^(EXTRAVERSION =).*|\1 -${_rc}|" Makefile
 
