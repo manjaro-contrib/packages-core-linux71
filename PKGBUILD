@@ -144,7 +144,6 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         0015-ASoC-amd-acp-Use-correct-DAI-link-ID-for-BT-codec.patch
         0016-wifi-ath11k-Rename-QCA2066-fw-dir-to-QCA206X.patch
         # HDMI VRR support https://github.com/Lawstorant/linux/tree/hdmi-7.1
-        0000-revert-2eeb342.patch
         0001-drm-amd-display-Refactor-amdgpu_dm_update_freesync_c.patch
         0002-Do-not-modify-display_info-in-freesync_caps.patch
         0003-Modify-display-range-if-freesync-capable.patch
@@ -154,25 +153,25 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         0007-drm-amd-display-Check-for-VRR-range-in-CEA-AMD-vsdb.patch
         0008-drm-amd-display-Use-bigger-VRR-range-if-found-in-AMD.patch
         0009-drm-amd-display-Separate-DP-eDP-and-PCON-paths-compl.patch
-        0010-Simplify-MCCS-logic-in-freesync_caps.patch
-        0011-drm-amd-display-Refactor-PCON-VRR-compatibility-chec.patch
-        0012-drm-amd-display-Add-PCON-VRR-ID-check-override.patch
-        0013-drm-amd-display-Add-CH7218-PCON-ID.patch
-        0014-drm-edid-Parse-more-info-from-HDMI-Forum-vsdb.patch
-        0015-drm-amd-display-Rename-PCON-adaptive-sync-types.patch
-        0016-drm-amd-display-Enable-HDMI-VRR-over-PCON.patch
-        0017-drm-amd-display-Support-HDMI-VRRmax-0.patch
-        0018-drm-amd-display-Build-HDMI-vsif-in-correct-slot.patch
-        0019-drm-amd-display-Save-HDMI-gaming-info-to-edid-caps.patch
-        0020-drm-amd-display-Restore-ALLM-support-in-HDMI-vsif.patch
-        0021-drm-amd-display-Trigger-ALLM-if-it-s-available.patch
-        0022-drm-amd-display-Reintroduce-VTEM-info-frame.patch
-        0023-drm-amd-display-Enable-HDMI-VRR.patch
-        0024-Merge-HDMI-and-PCON-paths.patch
-        0025-drm-amd-display-freesync_on_desktop-support-for-HDMI.patch
-        0026-Force-freesync_on_desktop-for-HDMI.patch
-        0027-drm-Add-ALLM-properties-to-connector.patch
-        0028-drm-amd-display-Use-ALLM-properties-in-amdgpu.patch
+        0010-drm-amd-display-Refactor-PCON-VRR-compatibility-chec.patch
+        0011-drm-amd-display-Add-PCON-VRR-ID-check-override.patch
+        0012-drm-amd-display-Add-CH7218-PCON-ID.patch
+        0013-drm-edid-Parse-more-info-from-HDMI-Forum-vsdb.patch
+        0014-drm-amd-display-Rename-PCON-adaptive-sync-types.patch
+        0015-drm-amd-display-Enable-HDMI-VRR-over-PCON.patch
+        0016-drm-amd-display-Support-HDMI-VRRmax-0.patch
+        0017-drm-amd-display-Build-HDMI-vsif-in-correct-slot.patch
+        0018-drm-amd-display-Save-HDMI-gaming-info-to-edid-caps.patch
+        0019-drm-amd-display-Restore-ALLM-support-in-HDMI-vsif.patch
+        0020-drm-amd-display-Trigger-ALLM-if-it-s-available.patch
+        0021-drm-amd-display-Reintroduce-VTEM-info-frame.patch
+        0022-drm-amd-display-Enable-HDMI-VRR.patch
+        0023-Merge-HDMI-and-PCON-paths.patch
+        0024-drm-amd-display-freesync_on_desktop-support-for-HDMI.patch
+        0025-Force-freesync_on_desktop-for-HDMI.patch
+        0026-drm-Add-ALLM-properties-to-connector.patch
+        0027-drm-amd-display-Use-ALLM-properties-in-amdgpu.patch
+        0028-fixu.patch
         # Zotac Zone patches
         0001-zotac-zone-hid-initial-impl.patch
         0002-xpad-gate-the-zotac-zone-PID-behind-if-IS_REACHABLE-.patch
@@ -295,35 +294,34 @@ sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0'
             '05468ccb20a963712c4cfde475db90625e6f464af7bc46d4fdd6ddf3e56dc482'
             '3902b6bb4f3e68e042596298684cbee224278a2f14cc56a71e0c53d28428f8bc'
             'ce21d041e62e353f1c733a5d952edb063ad7246b74e94979fc0cb32bbf7e4856'
-            '282330e8e42f6c494f5dda9fe15eac841ac9c29931aac0d41ff4a6cf5ed76667'
-            '48268d68abe08cecedab366c7cffc45534cfc9bc48ea95603d61c5e23bef2738'
-            '864eba2dbe3dfae3f606693470b5a50d6b6e53fe99da97a6b7c02506a0b92268'
-            '9673355a21987d59a0391acbb4922de11485ee3e6df923d290c248df045bb424'
-            '672460928674ce521cbf4c67fad3d559b20145550af61e85604c3895c668cf08'
-            'fddfda8af12ca79abeee46468df40589014ab49f92f277eaf7b05b92f9f977cd'
-            '1ca3f47814c235f1653c6f5c2a79427666613cf9cd5c086819aea4fbd933fba5'
-            'cd8637dcb5c2da82d40866fe1bc8d2f3df64839d8fc0b1dd156ec704bfbffc37'
-            '39ef04b202661c3d2032374b098782a0e07936aa03da750b00a65f9ceb0b16fe'
-            'ccfe31b00c6b83cf02a5b999b84fa39f2aed7c093e2409f21bbf931af65b1514'
-            '607598c0de73d45390aa945be3ebf5927956af17dc09be5d98dabc8d7e3e24eb'
-            '651f56f42eb51937c64b602823fedea5e049926bb300f247e0dafdbf3a62435f'
-            'f25279a197a8d2ff3159151570c5c986edc1c2e23649c9f4aa23a75eb45bc2c8'
-            '53abc9e2bf5a73b051f2ac4a4b566deeee30db73fd9db5465cbb646b093ef36a'
-            '4bea114e6901172e704237b897c470176710eed1e38bd85e5d69440cffdf9fe6'
-            'b64bf3b200dfc6f10020e279140ae8f879addb345d55f17b3197e8dea37de8ac'
-            '45b555f37b42f7c9d1f03f8af0984cbc0e03d7a447fa7f5bf1eab6aee41dd79d'
-            '309bf406413c42ae51c23e0ad1e9c521026bdb59d25c6811a10883fafc57785a'
-            '6fab4b622f7f279a032677211a3c7a30762d298222e59d8242adb37938d1474f'
-            '479b299ef9d5f4a6e2fd5e68274c9af4583cf0a0721985a5b6e1445b4b8c532e'
-            '35b45167bf2a761604b0bd9379367bd0c8bb69cdae80a4ca888504b810e22f84'
-            '4dc4950ed4d17231505b580b83971f5c63e15a4128571dc8b9fb2050bdd718cd'
-            '0d6888e95573e763ce765cf7c133d14917b320809092e46b7b05b3f8fc4c8377'
-            '4ab5a0faf8c5109c408341e6197534ef58df2b2b6cd9eeaa536acebbdb627745'
-            'b807703dcaa4896061b1ee5bf40d1c52ac3268277aa24372c578b0ab1a3f04d7'
-            'c263cec712f2069cda1743a81d89aa5ffc0b7e4111f864bea362749c2e54497f'
-            'a773cb1c3f0f46fb21486d0dd9a598eaf2557b2a9cd9b252dff6dd99da1911f6'
-            'ec3d1d1f24d6945fe2ecc6de35278948bf192e1a97eddf97bdd0a6d9a6ded5a2'
-            'be99354a2241644b1d29e44bbcf0df5e821986684ab295aac4a113f83153c815'
+            'b3e3bf41cc6976fe207ded9b0710575db53909b109cb50b246c163d9646b5593'
+            '49d2a9a0f56b126d238e2917c4e93bfe7cde339e9680e72e7fb7fc50ea9d7ccc'
+            '4f463a09ff32986199fa6c00848b6a72376edde036e8d1a7f3b31bc2302f2f43'
+            'c3fbc66f60852aeca82b393d7b53dcc63d20562f9b386c96b1dc4a1068cff5e2'
+            '0b8777b92735cbe88622c15ebfe1736f6a81cf879d05f63e98617ca3a2df3145'
+            '659512f9cde05bda7d3e79a4ffc7afff1074c03d620e0537ad3cb1278e6c9b6d'
+            '5deab2e9ad4c612e0bc15317fc108e7ade4407f329101fd9d77e3af79800f83d'
+            '9405b647189b9dec51d82e069606eec616d26874738c6ec8abcdb751a83e41a7'
+            'e7dce85ed79543392e97e02dd29a608ac87b1a801c065ee9c88bd8839e3f70ef'
+            '518f842a72b6340216378067a2c9ff43482851baf0dd7a601697df0d90d6f295'
+            'e8d36ab9fc3c20b597eef73c9602e196cf4376ba8ac5a899c51c8735c59d416b'
+            'bcf1660d91aa71db67bedddc305c7f29eb7ceee7d8e358a5c306c9db68a570a9'
+            '2d0cc32cef085d91f1a17553bf941de2a4c0ae6213b225b1dcf65aeaa14b7066'
+            'c47bfa8b75539a48e82899182e4aa9410fcaeeedb85cde18290399523b166992'
+            '286787adc6c04d72a4527b7bf3811947481857a25c61e6e92a6e80d1a0038432'
+            'dc91322aba229d50313a2fb9b1659edc286b88e5a0b4234b016520240fae5148'
+            '98ab310cc9210fad5a29a11c1cbf5d9dfd41c0059dec9cf6f273431f9dae3ce1'
+            'eac0070df9b15cbf6926c8719f40936386e794337ccf3a909f4167f9eccddcf1'
+            '74e5848da4dfb17aa071ca5c07a4fcb9d1ea667fc2974276e7afc1bc94bcf428'
+            '18ffb4f8bedee9bbf4df41ebdad89aa78bd39d141120a8e227aea3f9936e4cc3'
+            'ade9bd71c77d061514fe45fbcb57d86cac46d7ddc5ef84c8713386c0a27c5342'
+            'a93d7ea6b3c4799201be2125ab60ba0620b2b8d8b9a66bda415c8b0fbe1b2074'
+            '5ff27111c3d6ad6e5e49fcc9c569d32b318437b211269ab91021cb8e35ba26a6'
+            '17a04e9b9e09b36ce884770685dca9dd5eb4e68567548c62e1b34c548f86e5de'
+            'bcb0d16bed107415e87de355cc1f447e9bcd98afa6c5d1354c9ba3d0233823ab'
+            '88faa1a49babb7fec1ed08ea7276e08b3dbf67494fd8e7fa8ac53c382fdbdfdb'
+            '3342071c8f4d4b3dc54342d8affc8fcbae9cf4ce18b837fa07cb1be3db5342ed'
+            '1a443ba16fab79a2f46406319093e8ce3ed4651ed29d528afcdbec5bfa8e1060'
             'b67f25c13e946b51712b0e828ebbf8bea980d339bd6effab17869f6a62e428df'
             'f53e0ad0892ab4bd85f55b4cbb829481eba28865cf835a46c80bc237e0771981'
             '138684588665b8f651dffb4e75c265a2b81f6bd7a606f75f8fc6814a4a63d3fd'
