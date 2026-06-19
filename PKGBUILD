@@ -10,7 +10,7 @@ _kernelname=-MANJARO
 _commit=
 _rc=
 pkgbase=linux${_basever}
-pkgver=7.1.0
+pkgver=7.1.1
 pkgrel=1
 arch=('x86_64')
 url="https://www.kernel.org/"
@@ -35,7 +35,7 @@ options=(
 )
 source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         #https://github.com/torvalds/linux/archive/refs/tags/v${_basekernel}.tar.gz
-        #https://www.kernel.org/pub/linux/kernel/v7.x/patch-${pkgver}.xz
+        https://www.kernel.org/pub/linux/kernel/v7.x/patch-${pkgver}.xz
         config
         # Enable x86_64-v2 build optimisations
         more-ISA-levels-and-uarches-for-kernel-6.16+.patch
@@ -199,7 +199,7 @@ else
   _srcdir="linux-${_basekernel}"
 fi
 
-sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0'
+sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0' 'SKIP'
             '5f7d81bb5b34d694a1a2bbc8ee2593a42362d19f649bc358ce9630a396a3437d'
             '4d53324f7acbcf6eb1d85579c5b2c5d4504fab053001935ab1f3def7e0fb4b68'
             'e5e98d62b63704cecdf32dbe6a9bafea6e70b23fa8e01fe96ca220ac6036392e'
