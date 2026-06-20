@@ -133,7 +133,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         0071-FOR-UPSTREAM-hid-asus-ally-grab-short-press-QAM-on-R.patch
         0072-FOR-UPSTREAM-hid-asus-ally-disable-wakeup-attribute-.patch
         0073-EXTERNALLY-MAINTAINED-drm-amd-display-Enable-3-overl.patch
-        https://github.com/OpenGamingCollective/linux/tree/msi-wmi-platform-llvm-fix
+        # https://github.com/OpenGamingCollective/linux/tree/msi-wmi-platform-llvm-fix
         0001-NOT-FOR-UPSTREAM-platform-x86-msi-wmi-platform-Fix-i.patch
         # Gaming patches from CachyOS
         0003-leds-steamdeck-Add-support-for-Steam-Deck-LED.patch
