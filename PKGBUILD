@@ -59,7 +59,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         # Realtek patch
         0999-patch_realtek.patch
         # OGC patch-set
-        # https://github.com/OpenGamingCollective/linux/tree/hphilm/7.1/0-prep
+        # https://github.com/OpenGamingCollective/linux/tree/steam-deck-overlays
         0001-FROM-ML-mmc-rtsx_pci_sdmmc-drop-MMC_CAP_AGGRESSIVE_P.patch
         0002-FROM-ML-misc-rtsx_pcr-prevent-pm_schedule_suspend-fo.patch
         0003-FROM-ML-mmc-rtsx_pci_sdmmc-increase-delay-after-powe.patch
@@ -133,6 +133,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         0071-FOR-UPSTREAM-hid-asus-ally-grab-short-press-QAM-on-R.patch
         0072-FOR-UPSTREAM-hid-asus-ally-disable-wakeup-attribute-.patch
         0073-EXTERNALLY-MAINTAINED-drm-amd-display-Enable-3-overl.patch
+        https://github.com/OpenGamingCollective/linux/tree/msi-wmi-platform-llvm-fix
         0001-NOT-FOR-UPSTREAM-platform-x86-msi-wmi-platform-Fix-i.patch
         # Gaming patches from CachyOS
         0003-leds-steamdeck-Add-support-for-Steam-Deck-LED.patch
