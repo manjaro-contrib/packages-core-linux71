@@ -11,7 +11,7 @@ _commit=
 _rc=
 pkgbase=linux${_basever}
 pkgver=7.1.1
-pkgrel=2
+pkgrel=3
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=(GPL-2.0-only)
@@ -37,8 +37,6 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         #https://github.com/torvalds/linux/archive/refs/tags/v${_basekernel}.tar.gz
         https://www.kernel.org/pub/linux/kernel/v7.x/patch-${pkgver}.xz
         config
-        # Enable x86_64-v2 build optimisations
-        more-ISA-levels-and-uarches-for-kernel-6.16+.patch
         # ARCH Patches
         0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
         0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modese.patch
@@ -50,105 +48,35 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         0000-amd-display-move-AMD_PRIVATE_COLOR-to-Kconfig.patch
         # From Valve for Upstream (fixes suspend on deck target in inputplumber)
         0000-usb-vhci-hcd-Unconditionally-allow-system-suspend.patch
-        # https://invent.kde.org/plasma/kwin/-/merge_requests/9178
-        # https://mail.kde.org/pipermail/distributions/2026-June/001711.html
-        0001-udmabuf-Do-not-create-malformed-scatterlists.patch
-        0002-udmabuf-fix-DMA-direction-mismatch-in-release_udmabuf.patch
-        0003-udmabuf-skip-redundant-cpu-sync-to-fix-cach.patch
         # Manjaro Patches
         # Realtek patch
         0999-patch_realtek.patch
-        # OGC patch-set
-        # https://github.com/OpenGamingCollective/linux/tree/steam-deck-overlays
-        0001-FROM-ML-mmc-rtsx_pci_sdmmc-drop-MMC_CAP_AGGRESSIVE_P.patch
-        0002-FROM-ML-misc-rtsx_pcr-prevent-pm_schedule_suspend-fo.patch
-        0003-FROM-ML-mmc-rtsx_pci_sdmmc-increase-delay-after-powe.patch
-        0004-FROM-ML-cgroup-dmem-Add-queries-for-protection-value.patch
-        0005-FROM-ML-cgroup-cgroup-dmem-Add-dmem_-cgroup_common_a.patch
-        0006-FROM-ML-drm-ttm-Extract-code-for-attempting-allocati.patch
-        0007-FROM-ML-drm-ttm-Split-cgroup-charge-and-resource-all.patch
-        0008-FROM-ML-drm-ttm-Be-more-aggressive-when-allocating-b.patch
-        0009-FROM-ML-drm-ttm-Use-common-ancestor-of-evictor-and-e.patch
-        0010-FROM-ML-drm-nouveau-Userspace-can-now-make-use-of-me.patch
-        0011-FROM-ML-HID-hid-msi-Add-MSI-Claw-configuration-drive.patch
-        0012-FROM-ML-HID-hid-msi-Add-M-key-mapping-attributes.patch
-        0013-FROM-ML-HID-hid-msi-Add-RGB-control-interface.patch
-        0014-FROM-ML-HID-hid-msi-Add-Rumble-Intensity-Attributes.patch
-        0015-FROM-ML-HID-hid-oxp-Add-OneXPlayer-configuration-dri.patch
-        0016-FROM-ML-HID-hid-oxp-Add-Second-Generation-RGB-Contro.patch
-        0017-FROM-ML-HID-hid-oxp-Add-Second-Generation-Gamepad-Mo.patch
-        0018-FROM-ML-HID-hid-oxp-Add-Button-Mapping-Interface.patch
-        0019-FROM-ML-HID-hid-oxp-Add-Vibration-Intensity-Attribut.patch
-        0020-FROM-ML-platform-x86-ayn-ec-Add-PWM-Fan-HWMON-Interf.patch
-        0021-FROM-ML-platform-x86-ayn-ec-Add-Temperature-Sensors.patch
-        0022-FROM-ML-platform-x86-ayn-ec-Add-RGB-Interface.patch
-        0023-FROM-ML-platform-x86-ayn-ec-Add-AYN-EC-Platform-Docu.patch
-        0024-FROM-ML-platform-x86-lenovo-wmi-other-Add-missing-CP.patch
-        0025-FROM-ML-platform-x86-lenovo-wmi-other-Add-GPU-tunabl.patch
-        0026-FROM-ML-platform-x86-lenovo-wmi-other-Rename-LWMI_OM.patch
-        0027-FROM-ML-platform-x86-lenovo-wmi-other-Add-WMI-batter.patch
-        0028-FROM-ML-platform-x86-lenovo-wmi-other-Add-force_load.patch
-        0029-FROM-ML-platform-x86-lenovo-wmi-helpers-Add-helper-f.patch
-        0030-FROM-ML-platform-x86-lenovo-wmi-capdata-Add-debugfs-.patch
-        0031-EXTERNALLY-MAINTAINED-mfd-Add-MFD-core-driver-for-St.patch
-        0032-EXTERNALLY-MAINTAINED-mfd-steamdeck-Expose-controlle.patch
-        0033-EXTERNALLY-MAINTAINED-hwmon-Add-driver-for-Steam-Dec.patch
-        0034-EXTERNALLY-MAINTAINED-hwmon-steamdeck-hwmon-Add-supp.patch
-        0035-FROM-ML-platform-x86-asus-armoury-gate-PPT-writes-be.patch
-        0036-FROM-ML-platform-x86-msi-wmi-Reformat-msi_wmi_notify.patch
-        0037-FROM-ML-platform-x86-msi-wmi-Add-MSI-Claw-M-Center-k.patch
-        0038-FROM-ML-platform-x86-msi-wmi-platform-Use-input-buff.patch
-        0039-FROM-ML-platform-x86-msi-wmi-platform-Add-unlocked-m.patch
-        0040-FROM-ML-platform-x86-msi-wmi-platform-Add-quirk-syst.patch
-        0041-FROM-ML-platform-x86-msi-wmi-platform-Add-support-fo.patch
-        0042-FROM-ML-platform-x86-msi-wmi-platform-Add-platform-p.patch
-        0043-FROM-ML-platform-x86-msi-wmi-platform-Add-PL1-PL2-su.patch
-        0044-FROM-ML-platform-x86-msi-wmi-platform-Add-charge_thr.patch
-        0045-FROM-ML-platform-x86-msi-wmi-platform-Drop-excess-fa.patch
-        0046-FROM-ML-platform-x86-msi-wmi-platform-Update-header-.patch
-        0047-FROM-ML-platform-x86-msi-wmi-platform-Restore-fan-cu.patch
-        0048-Revert-FROM-ML-HID-hid-msi-Add-Rumble-Intensity-Attr.patch
-        0049-Revert-FROM-ML-HID-hid-msi-Add-RGB-control-interface.patch
-        0050-Revert-FROM-ML-HID-hid-msi-Add-M-key-mapping-attribu.patch
-        0051-Revert-FROM-ML-HID-hid-msi-Add-MSI-Claw-configuratio.patch
-        0052-FROM-ML-HID-hid-msi-Add-MSI-Claw-configuration-drive.patch
-        0053-FROM-ML-HID-hid-msi-Add-M-key-mapping-attributes.patch
-        0054-FROM-ML-HID-hid-msi-Add-RGB-control-interface.patch
-        0055-FROM-ML-HID-hid-msi-Add-Rumble-Intensity-Attributes.patch
-        0056-FOR-UPSTREAM-hid-asus-ally-Add-joystick-LED-ring-sup.patch
-        0057-FOR-UPSTREAM-hid-asus-ally-do-MCY-FW-validation-in-h.patch
-        0058-FOR-UPSTREAM-hid-asus-ally-initial-Ally-X-gamepad-br.patch
-        0059-FOR-UPSTREAM-hid-asus-ally-initial-gamepad-configura.patch
-        0060-FOR-UPSTREAM-hid-asus-ally-add-button-remap-attribut.patch
-        0061-FOR-UPSTREAM-hid-asus-ally-add-gamepad-mode-selectio.patch
-        0062-FOR-UPSTREAM-hid-asus-ally-Turbo-settings-for-button.patch
-        0063-FOR-UPSTREAM-hid-asus-ally-add-vibration-intensity-s.patch
-        0064-FOR-UPSTREAM-hid-asus-ally-add-JS-deadzones.patch
-        0065-FOR-UPSTREAM-hid-asus-ally-add-trigger-deadzones.patch
-        0066-FOR-UPSTREAM-hid-asus-ally-add-anti-deadzones.patch
-        0067-FOR-UPSTREAM-hid-asus-ally-add-JS-response-curves.patch
-        0068-FOR-UPSTREAM-hid-asus-ally-mcu_version-attribute.patch
-        0069-FOR-UPSTREAM-hid-asus-ally-add-calibrations-wip.patch
-        0070-FOR-UPSTREAM-debug-by-default.patch
-        0071-FOR-UPSTREAM-hid-asus-ally-grab-short-press-QAM-on-R.patch
-        0072-FOR-UPSTREAM-hid-asus-ally-disable-wakeup-attribute-.patch
-        0073-EXTERNALLY-MAINTAINED-drm-amd-display-Enable-3-overl.patch
-        # https://github.com/OpenGamingCollective/linux/tree/msi-wmi-platform-llvm-fix
-        0001-NOT-FOR-UPSTREAM-platform-x86-msi-wmi-platform-Fix-i.patch
-        # Gaming patches from CachyOS
-        0003-leds-steamdeck-Add-support-for-Steam-Deck-LED.patch
-        0008-Disable-modes-with-1200-MHz-Pixel-clocks-when-connec.patch
-        0009-drm-amdgpu-Don-t-use-doorbells-for-SDMA-5.2.patch
-        0010-Add-2s-delay-before-enabling-DP-link-for-dock.patch
-        0011-drivers-video-backlight-Disable-backlight-notificati.patch
-        0014-ASoC-max98388-Fix-power-on-when-resuming-from-suspen.patch
-        0015-ASoC-amd-acp-Use-correct-DAI-link-ID-for-BT-codec.patch
-        0016-wifi-ath11k-Rename-QCA2066-fw-dir-to-QCA206X.patch
+        # ROG ALLY Patches
+        # https://github.com/OpenGamingCollective/linux/pull/11
+        0001-FOR-UPSTREAM-hid-asus-ally-Add-joystick-LED-ring-sup.patch
+        0002-FOR-UPSTREAM-hid-asus-ally-do-MCY-FW-validation-in-h.patch
+        0003-FOR-UPSTREAM-hid-asus-ally-initial-Ally-X-gamepad-br.patch
+        0004-FOR-UPSTREAM-hid-asus-ally-initial-gamepad-configura.patch
+        0005-FOR-UPSTREAM-hid-asus-ally-add-button-remap-attribut.patch
+        0006-FOR-UPSTREAM-hid-asus-ally-add-gamepad-mode-selectio.patch
+        0007-FOR-UPSTREAM-hid-asus-ally-Turbo-settings-for-button.patch
+        0008-FOR-UPSTREAM-hid-asus-ally-add-vibration-intensity-s.patch
+        0009-FOR-UPSTREAM-hid-asus-ally-add-JS-deadzones.patch
+        0010-FOR-UPSTREAM-hid-asus-ally-add-trigger-deadzones.patch
+        0011-FOR-UPSTREAM-hid-asus-ally-add-anti-deadzones.patch
+        0012-FOR-UPSTREAM-hid-asus-ally-add-JS-response-curves.patch
+        0013-FOR-UPSTREAM-hid-asus-ally-mcu_version-attribute.patch
+        0014-FOR-UPSTREAM-hid-asus-ally-add-calibrations-wip.patch
+        0015-FOR-UPSTREAM-debug-by-default.patch
+        0016-FOR-UPSTREAM-hid-asus-ally-grab-short-press-QAM-on-R.patch
+        0017-FOR-UPSTREAM-hid-asus-ally-disable-wakeup-attribute-.patch
         # Zotac Zone patches
         0001-zotac-zone-hid-initial-impl.patch
         0002-xpad-gate-the-zotac-zone-PID-behind-if-IS_REACHABLE-.patch
         0003-tmp-apply-zotac-screen-quirk.patch
         0005-zone-fix-6.15-rename-del_timer-to-timer_delete.patch
+        # Steamdeck (OLED)
+        0001-steam-deck.patch
         # AMD patches
         # [PATCH v11] Add AMD ISP4 driver
         # https://patchew.org/linux/20260506093250.93460-1-Bin.Du@amd.com/
@@ -173,104 +101,36 @@ fi
 
 sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0'
             '64b04b49393f63b168b5be4b4820c8a78c33e1403c1d13d13c3f023c6ecff725'
-            '5f7d81bb5b34d694a1a2bbc8ee2593a42362d19f649bc358ce9630a396a3437d'
-            '4d53324f7acbcf6eb1d85579c5b2c5d4504fab053001935ab1f3def7e0fb4b68'
+            'd21fee07389507d59f6e04e3e1f7ef396e056fee2f794ac1192232706ac22d0b'
             'e5e98d62b63704cecdf32dbe6a9bafea6e70b23fa8e01fe96ca220ac6036392e'
             'c21170eba77438abb8b8ab02aeccf16bfb2467a01303509945aa6b3a0fd16d31'
             '37f3222fafbe67dec3740933be37867e0c378468f71e9a6d5d6a07c2a2a568fe'
             'cacb08b2f43a9fd09053bffaacc4b7bdf8381772f26e61825fb696ded100af57'
             'ae19a89ac1a3852d08456e7d163baa30d8fc8bcb0e48d08aee1bc1549fb143ba'
             '512032c6b93fce24254da6cace7bf101c8f7c824761a0f99deed4b7724ac6f3e'
-            'c3deec43967e5959135490b1bcf8bbe2a15f5c3a6c1675c06b5ed0031cbe1c04'
-            '43dcb7be95a4c270dabe2660ef37212afa8bf1978530b1b9f9ea255caedacc51'
-            'bcf73b329d7317a6eb4925fb8b7a781d10b244bf8392315b18da0648db00a8c5'
             '103688f3fceff664c919d94faab7a6948880710641110eaa71fe107ee06c37e9'
-            'e6f60660e73225773fe72c0243e5d1d8279cd5abe3aa6e1e2311554dfc0bf965'
-            '18e5460453b0bb97abd0bed65b8af913635752d2a1e3f9bc40055d6e33693df9'
-            'f5d7b71f00e17a4c9b6fdd8195b292a4604bb90ca685c65f15032f9ad40050cb'
-            '9b9c96a836deb72d67f654ca894d086d91de9f98aef49078b5e250db27c6ba45'
-            'fea0e8c0123e3953be1d71ab593b0b66ffc2757751c990378039ee988eafa1f1'
-            'dbc8345b488c1d77d1f446c8f1c8aab5a0b8f8f836b470d9708b3e70d171dc99'
-            'd386f71ebaad6748e8add0f99612e14d82554180539d641c79f13d20cd011fc4'
-            'e7edd2e2d7fdd60b217a975316ff819b904e856783cb34662dbcd8bde9e48e11'
-            'e1a3c8f83afcaeb333d3a646c7ddcf6994b2a5cbb8ba0efc4c9851411b45a8dc'
-            '48801f096dad21238929fff6770ab076a3986986289bb0d70beeb25175abf09e'
-            '1424dcb3e5368aad8a738a5aab749f436a204c6b4b79cda88d57e9ba1521580f'
-            '0e333dc06481e6ef7c0a5f60ffca4e4248bfc5d546767e8f3e1b069095f985a7'
-            'f80de4febad948132120dcb293eabd3ef20f9b966147e683f31ec2d9303a4ac2'
-            '664397b82df677a9dcfae2d2b4f92d0c550ef27c95803d3d9b052577968c5698'
-            '84bc2f5a30105a3db6f4a4d3d28e769f25c56218e544acb4b909cedb98daf02c'
-            'a8c621ebfba7020b0fe7eee45050349e586df9db88a2a27ad9a5977a25d59321'
-            '56c9088fef0d157cf96b9a8e199894484684a2933906a48db12d2256c545b49b'
-            '8f5edf8b2fb3bd98306c19a1f7dbe652a82e2c293046d5331ec68aa432e51fad'
-            'cb8691119ee547734799b9855e8b0b32b8712db439ed4573d43ec600284d9c29'
-            '43d345d9a9a1ef42feec29837ef3dcc343db1197d9859fdf5daf338698dd0c22'
-            'f2b52d9bfc408ed9b69f02285455f443bba813a4ecacd9babad0b2cb89cc2dd1'
-            '81b627dd52d26d32037ba5d861158bda5059684da425ffbc6e94adfe560a560f'
-            'b16f7ae8603909de4e4aefb3a65a06993dd3c654745b0f6c92f8cb5f268aa2d7'
-            'f11d2997403420cc296014c2ba4ca7fd312c5f4e650a6418edf60906509c6478'
-            'b837a435f8ef5e3068f1091cb01706ebba918be93b114f1bae7a05a5020d846c'
-            'dedf980f27c3dda3f391b4977eebb3839e24b40bbc60f290ed4ea71f75545aed'
-            '85fdb312e021b58eccfdc730ab69aa5b5f3ef9021b6530ad24c904f45cdada34'
-            '2cf4c2b558235efc7b5968ba8fc7bff029fee3f1df1571f927d0ebd918142ce9'
-            '5c10a9283dec5a40ccf95913ae730acb2e9b953c296897b7738cd3db9de05d5a'
-            '26f071b498b4b84b69256cd161693bbef2226d78997ce9f1b8f3a5bf60599813'
-            '48cf6a83524ca51c283efa5b010b179116619598bda2bb155010a0adff6b4fd6'
-            '395003dfd85886d3ed0b6762200c981a42871132a0c436844de6d08951861048'
-            'c963fca75cc308f77e20299afde1cc57106c1487a0e458bd4481f00ac1f3417c'
-            '28495aa39c301712d743530b888790d3ebcaae0b23778151651e4928418628af'
-            '0351059980f36d0b5fd4d5a7ba6116469374fe6f7d60da16f5c199a2ba09579c'
-            '03ac6ce458b95450f0f5bd923f7319c5e81c8ca21ed0659280f9d6d18b9d996e'
-            'b8f05b439c41aba3e303a6575a6614f386afa889c07eafc5229614ef2d29cc2d'
-            '2aeef52228083752040957bdcd6c4fdd0f3ff6b22c32a43e2310bd3fb60637e7'
-            '7e77963ad2ccb3c7b5cfb320452e9fc5a7858963c17bf19bec275a5e2d0586ef'
-            '616cfe49363576611b06f586aecc09ecd3244ef420abc9595e1f99135017d67b'
-            '9cd318826c6634dae14599eac106acd40f48442d669c0dccb59fa4f31afc74a4'
-            '56874a7def19131b5ee2517cd5321dba5bc9a94bd21f32155a629c86b66b4b13'
-            'f93366d9379b0afda6ea34c30b096d480dc6602f527844bad1b7276ab183e3bf'
-            'fc2b92a194bd9d09a4c85f298ef41138a0fc09825a7660ced177aec628fa457d'
-            '3c1c790163c0bd70cac941297b34f1ab4c98ab62e90a97b581163106110a932d'
-            'b39f6caf330464df5d80f3bd9338c6132a310b382e7958d3198c827678647c9e'
-            '123b0439ffedd39861623597a20797c11b38f4b9a8b8a6e00a7f9df0c70e8c7c'
-            'cdc2c51245a122414c0f26726a5de9e11e011222d9c020b36c44bb03b996fc07'
-            '5003f4221de4fb21a6051a99421de53ed28ce89afe58ba69c739095cba66f75d'
-            'ad7edbf1d78dc032d43cf10a80f39bb1fac574f797c7b47ba362ee9859b2da01'
-            'ed1addd90902ebc7294b8c8aeac190828ef5378b2f4bd5d6bddebb973ac16084'
-            'f93afc42e4e761033e6d5494ca7a2adfb2f630d7e7c03b4f63c04a74ba9db93e'
-            '33033845eee2fbe8017bbdee7b8e66c24053715e30f93ef0b3cd4e723913fe33'
-            '564a79d956c7dfd2bcefb464ed1d1c98442dd316dc83775799bd86b46fbdd0ab'
-            '9aa1ddee79a1368ffb499b557ad123c92ec0120ba1d1379ddb9d560000033179'
-            '9a50b3250163003c264713f7dfde302cd658ba4d36eb824a4a5293f3ff2cda54'
-            '9c86a5439f28f6147d18ca524c7e3e249f725126dfca5a036145e8499aad9c5b'
-            '3e3ea7cd668db9e7930813450549a39c4b2177f60c7f37a150347141ec5f237d'
-            '17421bdc1b16ffa06391006c2c48960ff19accbf81714dbeea627dc17b50668b'
-            '4a534cb849c9049282f6e4cb88643ba7eb02d2805b027afe290855459f2b7abd'
-            '42974c895a9515d852a03678bc604aae3674543c964ce973edde2e35c1f2075a'
-            '907ca312f17c1f1af203c50f12850e6697b51cf333d0c13764aad4182b2c2a1f'
-            '92f9f2bddd351458c5658a981da306ebcee3b87d42351f214fd220bfcb84240b'
-            '008b574350fa871979f400892fbe03e8f604be13c4a33ce5ae9e63b2c3aa79ee'
-            '058803917507ced26fd186b3191c75196767fe3808ec83ef5645c4cf0f03d2ad'
-            '54ec6b1eb398879daddd84a7b909586acd10e08ca4d39a8530f2401c1671c1bd'
-            'd5908a7cc977fc554388cbe71bd9a72ac37c97f11eec62bc3781e154c9ad2911'
-            '1a85bdbc3bf85aad5c22073b38c73f66ecf43d25be42c3c8615f80057efa1970'
-            '6d06f97910b7df59b72057e9e4fbb96ed120c2045578950c1fa6be47a132014a'
-            'ed75926df4930261ae336a4bd111031e3307e29c1ac8c1534b03878d69022bf5'
-            '6e9c1413f110038a9085c98c296ccaf7568de565bbd4122c444559f4f4b67e92'
-            'b831e786cba34a259d63da64e7cdb0237a6344bc9fca0d015736b686d3675472'
-            '150d3ea199648b50de08de064b0ce759df8a4059eac9f53dbebf6c8821fb92e2'
-            'd5e71c0271e2c459728fba1fa55346fc8f00c2cd283ad3083b42ae0fc7eca177'
-            'c60d1d285d20dfb6353086cbe28ba5bbb593a85578bdba49ab46508d17b4b043'
-            'd0e072a6052bca7bb226eb2217ab509bd79b76a95824032d96d19cbf59b0413b'
-            '3afa225e99284a9c3aa91b0c88133b6de3cc79f4ad9d21833c72a6ae15add927'
-            'f345f2e226d87e4d59b966fe6f1da597ea8f88262f723999394beae1169074aa'
-            '5bc136d940f2a695c2758865bb4b14b617ee19db0604104f7809bae43479344b'
-            '05468ccb20a963712c4cfde475db90625e6f464af7bc46d4fdd6ddf3e56dc482'
-            '3902b6bb4f3e68e042596298684cbee224278a2f14cc56a71e0c53d28428f8bc'
-            'ce21d041e62e353f1c733a5d952edb063ad7246b74e94979fc0cb32bbf7e4856'
+            'fdb4994534e896bcfa83a4f5764c8e2039f77c708f04cd1e4fc0ec1fc824c15e'
+            'a1e9a20dc86c2ea5ed5736336656f74e789f2c6c12704896c9f7e32729988500'
+            '82252a10edeb5848fb3ad6f79211b669894ebe07ebdb7c8f2ad72f1b0bd91364'
+            '2844e5b8e34da0b48020d3bb0e57724848f5f01683a29ec63019d1b164ecf509'
+            '4dca4da1dc5b21da4ebafe6c5072c0596eb530ab9e5603ddf0ccad2208146cac'
+            '755083d2f4093b2faa7a8ac0fee53fbc6b527a076af1698e97bf94b717891abd'
+            '68d500aab543edff8c5e3298d3be6fa0b78f700fb490ca52d14cb84051ffda15'
+            '0b4eeafdeddfd00938584f6e8e31f0316aa0245ada5db7d1492c455175ad7076'
+            '0e078d413f5c10fb39fb45608e49b3c58b3154df9c3cc79f0a5a21296a92f535'
+            '651dc8efc28cd03b145342db5a6446a80a7aa4bd7064e3ab1832292181951614'
+            'f7cabd28d1c7e4492c9c685d41676a16d0887221c76b3257dc4653e8cbbd0239'
+            '4dd33735647768755c07ca55f7c9aa0ead9a20ae2d929b2ade840a992d5fe08e'
+            '8bdcf5f00387d93086dde4748f5155a21b90b87e0fd562a127c365df6395b3eb'
+            '1dc1f5cc60e7f1298b4f3deea12dd9e6c47454fecee55b5f46888f22aec09b03'
+            '7cd498aab2ec929315848366ca07b379315db7c081bf463f6590146534fb651c'
+            '54841d11451eaea6eab712184a84fe3f119c1b5365fbca0c927129ebde3c16e8'
+            '73ed3550e05774836772418418a5089d43709b1796c42141e75dbe78584369d8'
             'b67f25c13e946b51712b0e828ebbf8bea980d339bd6effab17869f6a62e428df'
             'f53e0ad0892ab4bd85f55b4cbb829481eba28865cf835a46c80bc237e0771981'
             '138684588665b8f651dffb4e75c265a2b81f6bd7a606f75f8fc6814a4a63d3fd'
             '3d37e1f54290bad1b7a4c5c45046341dc4c1bfc2f8648b7754bf0bd9705b3a35'
+            'f8cf8ad3e17857b51c3f7dd954eb5ac7ba44bfe0302a40e70b2c496573407edf'
             '934384a274e6b90c58f91ab1a7096e37bd85bc8c2fa5bc0aa37ed25def9840fe'
             '024f8903b4da69cee9c273aa15e4c1dea7e4c57f37c4c6e0936daf0a232676af'
             '83271e77f23648dbf1d282ee0630d4434820e509f3699dfc64f4c95913481a87'
