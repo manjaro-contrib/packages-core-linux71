@@ -11,7 +11,7 @@ _commit=
 _rc=
 pkgbase=linux${_basever}
 pkgver=7.1.2
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=(GPL-2.0-only)
@@ -101,7 +101,7 @@ fi
 
 sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0'
             '0ae62b646d213d0626cbf40a0f7ae8aecc06d7a163cb5e3faf96c0ce1d2645a5'
-            '003014698a9f4173c2da5b8f456fb8f05d70bdd93dde627c013e859d64cfbfed'
+            'cc638aac6b5117bb9cd1f64a48ac1da01208d3137a0fde19f3b16902612c4689'
             'e5e98d62b63704cecdf32dbe6a9bafea6e70b23fa8e01fe96ca220ac6036392e'
             'c21170eba77438abb8b8ab02aeccf16bfb2467a01303509945aa6b3a0fd16d31'
             '37f3222fafbe67dec3740933be37867e0c378468f71e9a6d5d6a07c2a2a568fe'
