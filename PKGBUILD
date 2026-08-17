@@ -56,8 +56,8 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         # Manjaro Patches
         # fixed in 7.1.9
         revert-drm-amd-display-fix-backlight-max_brightness-.patch
-        drm-amd-display-check-for-tg-ops-in-dce110_set_avmut.patch
-        drm-amd-display-add-av-mute-wait-frames-to-dce110_se.patch
+        #drm-amd-display-check-for-tg-ops-in-dce110_set_avmut.patch
+        #drm-amd-display-add-av-mute-wait-frames-to-dce110_se.patch
         # Realtek patch
         0999-patch_realtek.patch
         # ROG ALLY Patches
