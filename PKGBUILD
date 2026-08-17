@@ -9,7 +9,7 @@ _commit=
 _rc=
 pkgbase=linux${_basever}
 pkgver=7.1.8
-pkgrel=2
+pkgrel=3
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=(GPL-2.0-only)
@@ -54,6 +54,10 @@ source=(https://www.kernel.org/pub/linux/kernel/v7.x/linux-${_basekernel}.tar.xz
         # From Valve for Upstream (fixes suspend on deck target in inputplumber)
         0000-usb-vhci-hcd-Unconditionally-allow-system-suspend.patch
         # Manjaro Patches
+        # fixed in 7.1.9
+        revert-drm-amd-display-fix-backlight-max_brightness-.patch
+        drm-amd-display-check-for-tg-ops-in-dce110_set_avmut.patch
+        drm-amd-display-add-av-mute-wait-frames-to-dce110_se.patch
         # Realtek patch
         0999-patch_realtek.patch
         # ROG ALLY Patches
@@ -115,6 +119,9 @@ sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0'
             'cacb08b2f43a9fd09053bffaacc4b7bdf8381772f26e61825fb696ded100af57'
             'ae19a89ac1a3852d08456e7d163baa30d8fc8bcb0e48d08aee1bc1549fb143ba'
             '512032c6b93fce24254da6cace7bf101c8f7c824761a0f99deed4b7724ac6f3e'
+            '749bfddf2891e30edfaec86485defb9a31971da61b00fb664a5975f6840b4345'
+            'c78b48e42584f66c2260ed1a180fe628aa6f83019680bd565fb87055f0159639'
+            'df75fcb6a28df05bc92ebc94d63f7029734d5b31d4f7839917a14d7d9cd348f7'
             '103688f3fceff664c919d94faab7a6948880710641110eaa71fe107ee06c37e9'
             'fdb4994534e896bcfa83a4f5764c8e2039f77c708f04cd1e4fc0ec1fc824c15e'
             'a1e9a20dc86c2ea5ed5736336656f74e789f2c6c12704896c9f7e32729988500'
