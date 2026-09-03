@@ -8,7 +8,7 @@ _kernelname=-MANJARO
 _commit=
 _rc=
 pkgbase=linux${_basever}
-pkgver=7.1.12
+pkgver=7.1.13
 pkgrel=1
 arch=('x86_64')
 url="https://www.kernel.org/"
@@ -111,7 +111,7 @@ else
 fi
 
 sha256sums=('691f44797fbe790dc8a321604c927087526ad27b6d649925d60f8eed0a2564a0'
-            'e8375a81dfcbbc3f33a90c6522d665b2be7f31d86da61c5933a160a8ad29baa1'
+            'bc26984f42f51d354aeacc4eeb3e551638ba20459bace18de38687f24315f470'
             '3d3775041dba4434907c68fbb787b09de6ed6ffda7c3eb5ea3c2a27c05d3b90f'
             'e5e98d62b63704cecdf32dbe6a9bafea6e70b23fa8e01fe96ca220ac6036392e'
             'c21170eba77438abb8b8ab02aeccf16bfb2467a01303509945aa6b3a0fd16d31'
@@ -227,6 +227,7 @@ _package() {
     virtualbox-guest-modules
     wireguard
   )
+  install=EOL.install
 
   cd $_srcdir
   local modulesdir="$pkgdir/usr/lib/modules/$(<version)"
